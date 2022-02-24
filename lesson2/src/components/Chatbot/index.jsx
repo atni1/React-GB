@@ -37,8 +37,7 @@ export const Chatbot = () => {
     if (tail.author === 'bot') {
       return;
     }
-
-    sendMessage('bot', 'Hello!');
+    setTimeout(() => {sendMessage('bot', 'Hello!')}, 1500);
   }, [messageList]);
 
   return (
