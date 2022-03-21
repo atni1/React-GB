@@ -7,6 +7,9 @@ import { Home } from './routes/Home'
 import { Profile } from './routes/Profile'
 import { Message } from './routes/Message'
 
+import { store } from './store'
+import { Provider } from 'react-redux'
+
 const useStyle = makeStyles({
   header: {
     display: "flex",
@@ -31,32 +34,34 @@ export const Chat = () => {
 
   return (
     <div>
-      <BrowserRouter>
-        <AppBar 
-          color={'secondary'}
-          className={classes.header}>
-          <Toolbar className={classes.wrapper}>
-            <Button to="/" component={Link} className={classes.buttonNaw}>
-              Home
-            </Button>
-            <Button to="/profile" component={Link} className={classes.buttonNaw}>
-              Profile
-            </Button>
-            <Button to="/chats" component={Link} className={classes.buttonNaw}>
-              Chats
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <Switch>
-          <Route path="/chats">
-            <Chats >
-              <Route path="/chats/:chatId" component={Message} />
-            </Chats>
-          </Route >
-          <Route component={Profile} path="/profile" />
-          <Route component={Home} path="/" />
-        </Switch>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <AppBar 
+            color={'secondary'}
+            className={classes.header}>
+            <Toolbar className={classes.wrapper}>
+              <Button to="/" component={Link} className={classes.buttonNaw}>
+                Home
+              </Button>
+              <Button to="/profile" component={Link} className={classes.buttonNaw}>
+                Profile
+              </Button>
+              <Button to="/chats" component={Link} className={classes.buttonNaw}>
+                Chats
+              </Button>
+            </Toolbar>
+          </AppBar>
+          <Switch>
+            <Route path="/chats">
+              <Chats >
+                <Route path="/chats/:chatId" component={Message} />
+              </Chats>
+            </Route >
+            <Route component={Profile} path="/profile" />
+            <Route component={Home} path="/" />
+          </Switch>
+        </BrowserRouter>
+      </Provider>
     </div>
   )
 }

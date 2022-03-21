@@ -2,7 +2,6 @@ import { ListItem, ListItemText } from '@mui/material';
 import protoTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom';
-import { CHATS } from '../mochs/chats';
 
 const useStyle = makeStyles({
   chat: {

@@ -2,8 +2,6 @@ import { Button, List } from '@material-ui/core';
 import protoTypes from 'prop-types';
 import { Chat } from './Chat';
 import { makeStyles } from '@material-ui/core/styles';
-import { CHATS } from '../mochs/chats';
-import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles({
   buttonAdd: {
